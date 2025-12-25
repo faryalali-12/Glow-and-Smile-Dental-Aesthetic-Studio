@@ -1,0 +1,60 @@
+body {
+    padding-top: 70px;
+}
+
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('../images/dental.jpg') center/cover;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+}
+.card:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+.social-buttons {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.social {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: 0.3s;
+}
+/* WhatsApp Official Color */
+.whatsapp-btn {
+    background-color: #25D366;
+}
+
+/* Instagram Official Gradient */
+.instagram-btn {
+    background: radial-gradient(circle at 30% 107%,
+        #fdf497 0%,
+        #fdf497 5%,
+        #fd5949 45%,
+        #d6249f 60%,
+        #285AEB 90%);
+}
+
+/* Hover effect */
+.whatsapp-btn:hover,
+.instagram-btn:hover {
+    opacity: 0.9;
+    transform: scale(1.08);
+    transition: 0.3s;
+}
