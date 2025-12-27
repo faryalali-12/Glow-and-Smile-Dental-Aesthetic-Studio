@@ -21,11 +21,11 @@ body {
         height: 300px;
     }
 }
-/* ===== TREATMENT IMAGES SAME SIZE FIX ===== */
+/* ========== FIX TREATMENT IMAGE SIZE ========== */
 #treatments .card-img-top {
-    height: 200px;          /* same height for all */
+    height: 180px;      /* uniform height */
     width: 100%;
-    object-fit: cover;      /* crop image nicely */
+    object-fit: cover;  /* crop to fill without distortion */
 }
 
 
@@ -85,5 +85,6 @@ body {
     transform: scale(1.08);
     transition: 0.3s;
 }
+
 
 
