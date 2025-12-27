@@ -21,12 +21,18 @@ body {
         height: 300px;
     }
 }
-/* ========== FIX TREATMENT IMAGE SIZE ========== */
-#treatments .card-img-top {
-    height: 180px;      /* uniform height */
+/* FORCE SAME SIZE FOR ALL TREATMENT IMAGES */
+.treatment-img {
     width: 100%;
-    object-fit: cover;  /* crop to fill without distortion */
+    height: 200px;
+    object-fit: cover;
 }
+
+/* MAKE ALL TREATMENT CARDS SAME HEIGHT */
+#treatments .card {
+    height: 100%;
+}
+
 
 
 /* Optional hover effect */
@@ -85,6 +91,7 @@ body {
     transform: scale(1.08);
     transition: 0.3s;
 }
+
 
 
 
