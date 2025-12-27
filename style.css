@@ -21,14 +21,13 @@ body {
         height: 300px;
     }
 }
-/* ===== Treatment Cards Image Fix ===== */
-.treatment-card img {
-    height: 200px;        /* SAME height for all */
+/* ===== TREATMENT IMAGES SAME SIZE FIX ===== */
+#treatments .card-img-top {
+    height: 200px;          /* same height for all */
     width: 100%;
-    object-fit: cover;   /* Crop nicely without stretching */
-    border-top-left-radius: 0.375rem;
-    border-top-right-radius: 0.375rem;
+    object-fit: cover;      /* crop image nicely */
 }
+
 
 /* Optional hover effect */
 .treatment-card:hover {
@@ -86,4 +85,5 @@ body {
     transform: scale(1.08);
     transition: 0.3s;
 }
+
 
