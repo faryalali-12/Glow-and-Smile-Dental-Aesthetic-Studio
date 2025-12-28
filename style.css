@@ -12,24 +12,6 @@ body {
     align-items: center;
 }
 
-/* ===== FIX 1: CAROUSEL (ALL SLIDES SAME SIZE) ===== */
-#clinicCarousel .carousel-item {
-    height: 350px;   /* SAME HEIGHT FOR ALL SLIDES */
-}
-
-#clinicCarousel .carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;       /* prevents stretching */
-    object-position: center;
-}
-
-/* Mobile carousel height */
-@media (max-width: 768px) {
-    #clinicCarousel .carousel-item {
-        height: 250px;
-    }
-}
 
 /* ===== FIX 2: TREATMENTS (ALL IMAGES SAME SIZE) ===== */
 #treatments .card-img-top {
@@ -95,6 +77,23 @@ body {
     opacity: 0.9;
     transform: scale(1.08);
 }
+/* ===== FINAL CAROUSEL FIX ===== */
+#clinicCarousel {
+    height: 380px;
+}
+
+#clinicCarousel .carousel-item,
+#clinicCarousel .carousel-inner {
+    height: 100%;
+}
+
+#clinicCarousel img.carousel-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
 
 
 
