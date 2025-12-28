@@ -9,11 +9,18 @@ body {
     display: flex;
     align-items: center;
 }
-/* ===== Carousel Image Fix (No Stretch) ===== */
-.carousel-img {
-    height: 400px;
-    object-fit: cover;
+/* ===== Carousel consistent height (all slides same size) ===== */
+#clinicCarousel .carousel-item {
+    height: 350px;          /* fixed height for all slides */
 }
+
+#clinicCarousel .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center; /* crop from center */
+}
+
 
 /* Mobile view */
 @media (max-width: 768px) {
@@ -91,6 +98,7 @@ body {
     transform: scale(1.08);
     transition: 0.3s;
 }
+
 
 
 
