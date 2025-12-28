@@ -77,22 +77,38 @@ body {
     opacity: 0.9;
     transform: scale(1.08);
 }
-/* ===== FINAL CAROUSEL FIX ===== */
+/* Container: Sets the boundary for the images */
 #clinicCarousel {
-    height: 380px;
-}
-
-#clinicCarousel .carousel-item,
-#clinicCarousel .carousel-inner {
-    height: 100%;
-}
-
-#clinicCarousel img.carousel-img {
-    height: 100%;
     width: 100%;
-    object-fit: cover;
-    object-position: center;
+    max-width: 1200px; /* Optional: adjust based on your layout */
+    margin: 0 auto;
+    height: 380px; 
+    overflow: hidden; /* Prevents images from spilling out */
 }
+
+/* Inner elements: Ensure they fill the container height */
+#clinicCarousel .carousel-inner,
+#clinicCarousel .carousel-item {
+    height: 100%;
+}
+
+/* Images: Modern 2025 approach for uniform sizing */
+#clinicCarousel img.carousel-img {
+    width: 100%;
+    height: 100%; /* Required to make object-fit work */
+    object-fit: cover; /* Crops the image to fill the 380px space */
+    object-position: center; /* Keeps the middle of the photo visible */
+    display: block; /* Removes unwanted baseline spacing */
+}
+
+/* Responsive adjustment: 380px is often too tall for mobile */
+@media (max-width: 768px) {
+    #clinicCarousel, 
+    #clinicCarousel img.carousel-img {
+        height: 250px; /* Shorter height for smaller screens */
+    }
+}
+
 
 
 
