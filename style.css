@@ -21,18 +21,18 @@ body {
         height: 300px;
     }
 }
-/* FORCE SAME SIZE FOR ALL TREATMENT IMAGES */
-.treatment-img {
+/* === FINAL FIX: FORCE SAME SIZE TREATMENT IMAGES === */
+#treatments .card-img-top {
     width: 100%;
-    height: 200px;
+    height: 220px;
     object-fit: cover;
+    object-position: center;
 }
 
-/* MAKE ALL TREATMENT CARDS SAME HEIGHT */
+/* Make all cards equal height */
 #treatments .card {
     height: 100%;
 }
-
 
 
 /* Optional hover effect */
@@ -91,6 +91,7 @@ body {
     transform: scale(1.08);
     transition: 0.3s;
 }
+
 
 
 
