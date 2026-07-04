@@ -1,35 +1,263 @@
-/* ===== General ===== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+/* ===== Variables (Theme) ===== */
+:root {
+    --primary-color: #0B1B3D; /* Midnight Blue */
+    --secondary-color: #D4AF37; /* Champagne Gold */
+    --accent-color: #E5C158;
+    --dark-bg: #061024;
+    --light-bg: #F8F9FA;
+    --white: #FFFFFF;
+    --text-dark: #333333;
+    --text-light: #EEEEEE;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+/* ===== General Settings ===== */
 body {
-    padding-top: 70px;
+    font-family: var(--font-body);
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+/* ===== Splash Screen ===== */
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--primary-color);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 1s ease-out, visibility 1s ease-out;
+}
+
+#splash-screen h1 {
+    color: var(--secondary-color);
+    font-size: 3rem;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 2s ease forwards;
+    padding: 0 20px;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Navbar (Glassmorphism) ===== */
+.navbar {
+    background: rgba(11, 27, 61, 0.9) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    transition: background 0.3s ease;
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-family: var(--font-heading);
+    color: var(--secondary-color) !important;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.nav-link {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--white) !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--secondary-color) !important;
 }
 
 /* ===== Hero Section ===== */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                url('../images/dental.jpg') center/cover;
-    height: 80vh;
+    background: linear-gradient(rgba(11, 27, 61, 0.7), rgba(6, 16, 36, 0.9)),
+                url('https://lh3.googleusercontent.com/p/AF1QipMBdORQIP8zrHSxRrMdH6hbLekCh9GMiMr6iml0=s1200') center/cover no-repeat;
+    height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+/* ===== Buttons ===== */
+.btn-gold {
+    background-color: transparent;
+    color: var(--secondary-color);
+    border: 2px solid var(--secondary-color);
+    padding: 12px 30px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    border-radius: 0;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-gold:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+}
+
+.btn-solid-gold {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    border-radius: 0;
+}
+
+.btn-solid-gold:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.4);
 }
 
 
-/* ===== FIX 2: TREATMENTS (ALL IMAGES SAME SIZE) ===== */
-#treatments .card-img-top {
-    width: 100%;
-    height: 220px;           /* SAME HEIGHT FOR ALL */
-    object-fit: cover;       /* crops instead of stretching */
-    object-position: center;
+/* ===== Treatment Cards ===== */
+#treatments {
+    background-color: var(--light-bg);
 }
 
-/* Make all treatment cards equal height */
-#treatments .card {
+.treatment-card {
+    border: none;
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     height: 100%;
 }
 
-/* ===== Hover Effects ===== */
-.card:hover {
+.treatment-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+}
+
+.treatment-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.treatment-card:hover .treatment-img {
     transform: scale(1.05);
-    transition: 0.3s ease;
+}
+
+.treatment-card .card-body {
+    padding: 20px;
+    background-color: var(--white);
+    border-top: 3px solid var(--secondary-color);
+}
+
+.treatment-card h6 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* ===== Sections General ===== */
+.section-title {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--secondary-color);
+}
+
+.dark-section {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.dark-section .section-title {
+    color: var(--secondary-color);
+}
+
+/* ===== Forms ===== */
+.form-control, .form-select {
+    border-radius: 0;
+    border: 1px solid #ccc;
+    padding: 12px;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+}
+
+/* ===== Footer ===== */
+footer {
+    background-color: var(--dark-bg);
+    color: var(--text-light);
+    padding: 40px 0 20px;
+    border-top: 2px solid var(--secondary-color);
 }
 
 /* ===== Social Media Floating Buttons ===== */
@@ -57,55 +285,34 @@ body {
     transition: 0.3s;
 }
 
-/* WhatsApp Official Color */
 .whatsapp-btn {
     background-color: #25D366;
 }
 
-/* Instagram Official Gradient */
 .instagram-btn {
-    background: radial-gradient(circle at 30% 107%,
-        #fdf497 0%,
-        #fdf497 5%,
-        #fd5949 45%,
-        #d6249f 60%,
-        #285AEB 90%);
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
 }
 
-.whatsapp-btn:hover,
-.instagram-btn:hover {
-    opacity: 0.9;
-    transform: scale(1.08);
+.facebook-btn {
+    background-color: #1877F2;
 }
-/* Forcing all carousel images to the same length/height */
+
+.social:hover {
+    transform: scale(1.1);
+    color: #fff;
+}
+
+/* ===== Carousel Fixes ===== */
+#clinicCarousel {
+    margin-top: 70px;
+}
 #clinicCarousel .carousel-item img {
-    height: 380px !important;  /* Set your desired fixed length */
-    width: 100% !important;    /* Maintain full width across the container */
-    object-fit: cover !important; /* Crops the image to fit without stretching */
-    object-position: center;   /* Centers the focus of the photo */
+    height: 500px !important;
+    width: 100% !important;
+    object-fit: cover !important;
 }
 
-/* Optional: Ensures the container matches the image length exactly */
-#clinicCarousel .carousel-inner {
-    height: 380px !important;
-    overflow: hidden;
-}
-
-/* Recommended: Responsive length for mobile screens */
 @media (max-width: 768px) {
-    #clinicCarousel .carousel-item img,
-    #clinicCarousel .carousel-inner {
-        height: 250px !important; /* Shorter length for better mobile viewing */
-    }
+    .hero h1 { font-size: 2.5rem; }
+    #clinicCarousel .carousel-item img { height: 300px !important; }
 }
-
-
-
-
-
-
-
-
-
-
-
