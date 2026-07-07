@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize EmailJS
     // NOTE TO USER: Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
     if (typeof emailjs !== 'undefined') {
-        emailjs.init('YOUR_PUBLIC_KEY'); 
+        emailjs.init('Y6006WnoC6CYMChMk'); 
     }
 
     // Handle Appointment Form Submission
@@ -67,8 +67,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // NOTE TO USER: Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID'
             // with your actual EmailJS Service ID and Template ID.
-            const serviceID = 'YOUR_SERVICE_ID';
-            const templateID = 'YOUR_TEMPLATE_ID';
+            const serviceID = 'service_g629ebp';
+            const templateID = 'template_fn4w3i7';
 
             emailjs.send(serviceID, templateID, templateParams)
                 .then(function(response) {
